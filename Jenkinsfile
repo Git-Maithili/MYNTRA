@@ -1,7 +1,7 @@
 pipeline {
 	agent any  
 	parameters {
-   choice(choices: ['QA', 'UAT', 'DEV'], description: 'Select The Environment.', name: 'choice')
+  choice (choices: ['QA', 'UAT', 'DEV'], description: 'select the environment', name: 'choice')
 }
 	stages {
 	    stage('Checkout') {
@@ -16,11 +16,11 @@ pipeline {
 		    steps {
 			script {
 			  if ( env.ENV == 'QA' ){
-        	               sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
+			  sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
         	               echo "deployment has been COMPLETED on QA!"
 			 }
 			  else ( env.ENV == 'UAT' ){
-			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
+			  sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
     		               echo "deployment has been done on UAT!"
 			}
 			}}}	
