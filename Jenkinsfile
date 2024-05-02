@@ -17,9 +17,11 @@ pipeline {
 			script {
 			  if ( env.choice == 'QA' ){
 			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
+			       echo "DEPLOYMENT SUCCESSFULL ON QA SERVER!"
 			       }
 			  else ( env.choice == 'UAT' ){
 			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
+			       echo "DEPLOYMENT SUCCESSFULL ON UAT SERVER!"
 			       }
 			}}}	
 }}
