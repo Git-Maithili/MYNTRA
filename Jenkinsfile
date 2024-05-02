@@ -3,7 +3,6 @@ pipeline {
 	parameters {
   string defaultValue: 'QA', name: 'ENV'
 }
-   }
 	stages {
 	    stage('Checkout') {
 	        steps {
@@ -25,4 +24,4 @@ pipeline {
     		echo "deployment has been done on UAT!"
 			}
 			}}}	
-}
+}}
