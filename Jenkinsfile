@@ -1,7 +1,7 @@
 pipeline {
 	agent any  
 	parameters {
-  string defaultValue: 'QA', name: 'ENV'
+            string defaultValue: 'QA', name: 'ENV'
 }
 	stages {
 	    stage('Checkout') {
