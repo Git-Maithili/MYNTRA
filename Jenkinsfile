@@ -16,11 +16,11 @@ pipeline {
 		    steps {
 			script {
 			  if ( env.choice == 'QA' ){
-			  sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
+			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
         	               echo "deployment has been COMPLETED on QA!"
 			 }
 			  else ( env.choice == 'UAT' ){
-			  sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
+			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
     		               echo "deployment has been done on UAT!"
 			}
 			}}}	
