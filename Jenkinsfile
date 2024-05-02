@@ -1,8 +1,12 @@
 pipeline {
 	agent any  
 	parameters {
-  string (defaultValue: 'QA', description: 'enter QA or UAT', name: 'ENV')
-}
+  choice (choices: ['QA', 'UAT', 'DEV'], description: 'select the environment', name: 'choice')
+        }
+        triggers {
+           pollSCM '* * * * *'
+        }
+
 	stages {
 	    stage('Checkout') {
 	        steps {
@@ -15,13 +19,13 @@ pipeline {
 	    stage('Deployment'){
 	        steps {
 			script {
-			  if ( env.ENV == 'QA' ){
+			  if ( env.choice == 'QA' ){
 			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
 			       echo "DEPLOYMENT SUCCESSFULL ON QA SERVER"
 			       }
-			  else ( env.ENV == 'UAT' ){
+			  else ( env.choice == 'UAT' ){
 			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
 			       echo "DEPLOYMENT SUCCESSFULL ON QA SERVER"
 			       }
 			}}}	
-}}
+        }}
