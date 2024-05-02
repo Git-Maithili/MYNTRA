@@ -25,7 +25,7 @@ pipeline {
 			       }
 			  else ( env.choice == 'UAT' ){
 			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
-			       echo "DEPLOYMENT SUCCESSFULL ON QA SERVER"
+			       echo "DEPLOYMENT SUCCESSFULL ON UAT SERVER"
 			       }
 			}}}	
         }}
