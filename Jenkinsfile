@@ -27,5 +27,9 @@ pipeline {
 			       sh 'cp target/MYNTRA.war /home/vboxuser/Documents/DevOps_Software/apache-tomcat-9.0.88/webapps'
 			       echo "DEPLOYMENT SUCCESSFULL ON UAT SERVER"
 			       }
-			}}}	
+			}}}
+			stage('slack-notification'){
+		   steps {
+		      slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#notify', color: 'good', message: 'SLACK NOTIFICATION JOB CREATED', teamDomain: 'MyDevOpsTeam', tokenCredentialId: '05c23611-4a79-4a45-8813-46c26cd00d99'
+		     }}	
         }}
